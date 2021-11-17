@@ -7,30 +7,22 @@
         <!-- Edit Form Title -->
         <h3 class="text-center">Edit Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <!-- Title Section -->
                 <div class="mb-3">
-                    <!-- Title Section -->
                     <label for="title" class="form-label">Title</label>
                     <input class="form-control" type="text" id="title" name="campground[title]" value="<%=campground.title%>" required>
                 </div>
+                <!-- Location Section -->
                 <div class="mb-3">
-                    <!-- Location Section -->
                     <label class="form-label" for="location">Location</label>
                     <input class="form-control" type="text" id="location" name="campground[location]" value="<%=campground.location%>" required>
                     <div class="valid-feedback">
                         Looks Good!
                     </div>
                 </div>
+                <!-- Price Section -->
                 <div class="mb-3">
-                    <!-- Image Section -->
-                    <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control" type="text" id="image" name="campground[image]" value="<%=campground.image%>" required>
-                    <div class="valid-feedback">
-                        Looks Good!
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <!-- Price Section -->
                     <label class="form-label" for="price">Campground Price</label>
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">$</span>
@@ -40,13 +32,32 @@
                                 Looks Good!
                             </div>
                     </div>
+                </div>
+                <!-- Description Section -->
                 <div class="mb-3">
-                    <!-- Description Section -->
                     <label class="form-label" for="description">Description</label>
                     <textarea class="form-control" type="text" id="description" name="campground[description]" required><%=campground.description%>"</textarea>
                     <div class="valid-feedback">
                         Looks Good!
                     </div>
+                </div>
+                <!-- Edit Images -->
+                <div class="mb-3">
+                    <label for="" class="mb-2">Add More Images</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="image" name="image" multiple>
+                        <label class="input-group-text" for="image">Upload Images</label>
+                    </div>
+                </div>
+                <!-- Delete Images -->
+                <div class="mb-3">
+                    <% campground.images.forEach(function(image, i) { %> 
+                        <img src="<%=image.thumbnail%>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=image.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">Delete?</label>
+                    <% }) %> 
                 </div>
                 <!-- Form Links -->
                 <div class="mb-3">

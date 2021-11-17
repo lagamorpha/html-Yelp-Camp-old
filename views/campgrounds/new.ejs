@@ -4,33 +4,25 @@
     <h1 class="text-center">New campground</h1>
     <div class="col-6 offset-3">
         <!-- Input New Campground Form -->
-        <form action="/campgrounds" method="POST" novalidate class="validated-form">
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <!-- Input Title -->
             <div class="mb-3">
-                <!-- Input Title -->
                 <label for="title" class="form-label">Title</label>
                 <input class="form-control" type="text" id="title" name="campground[title]" required>
                 <div class="valid-feedback">
                     Looks Good!
                 </div>
             </div>
+            <!-- Input Location -->
             <div class="mb-3">
-                <!-- Input Location -->
                 <label class="form-label" for="location">Location</label>
                 <input class="form-control" type="text" id="location" name="campground[location]" required>
                 <div class="valid-feedback">
                     Looks Good!
                 </div>
             </div>
+            <!-- Input Price -->
             <div class="mb-3">
-                <!-- Input Image -->
-                <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="campground[image]" required>
-                <div class="valid-feedback">
-                    Looks Good!
-                </div>
-            </div>
-            <div class="mb-3">
-                <!-- Input Price -->
                 <label class="form-label" for="price">Campground Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
@@ -41,12 +33,20 @@
                     Looks Good!
                 </div>
             </div>
+            <!-- Input Description -->
             <div class="mb-3">
-                <!-- Input Description -->
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description" name="campground[description]" required></textarea>
                 <div class="valid-feedback">
                     Looks Good!
+                </div>
+            </div>
+            <!-- Input Image -->
+            <div class="mb-3">
+                <label for="" class="mb-2">Upload Images</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="image" name="image" multiple>
+                    <label class="input-group-text" for="image">Upload Images</label>
                 </div>
             </div>
             <!-- Form Links -->
