@@ -32,20 +32,24 @@ const seedDB = async () => {
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quo nemo aliquam animi placeat quod fuga iure, dolorum, omnis commodi voluptas accusamus repellendus id quis necessitatibus temporibus voluptatibus asperiores assumenda.At, sapiente quam? Dignissimos recusandae aliquid quia ut tempora praesentium nam ea? Fugit animi eligendi autem neque quaerat dolor officia quidem. Et qui dolorum soluta dolorem veniam cum explicabo vel?',
             price,
+            geometry: { 
+              type: 'Point',
+              coordinates: [ 175.28333, -37.78333 ]  
+            },
             images: [
-                {
-                  url: 'https://res.cloudinary.com/lagamorph/image/upload/v1633497794/YelpCamp/k4ouocufjts6wmz98ddp.jpg',
-                  filename: 'YelpCamp/k4ouocufjts6wmz98ddp'
-                },
-                {
-                  url: 'https://res.cloudinary.com/lagamorph/image/upload/v1633497794/YelpCamp/zetrnulytqccu24msprk.jpg',
-                  filename: 'YelpCamp/zetrnulytqccu24msprk'
-                },
-                {
-                  url: 'https://res.cloudinary.com/lagamorph/image/upload/v1633497794/YelpCamp/xro1lyp1d1wks2hoase5.jpg',
-                  filename: 'YelpCamp/xro1lyp1d1wks2hoase5'
-                }
-              ]
+              {
+                url: 'https://res.cloudinary.com/lagamorph/image/upload/v1634880881/YelpCamp/bxiwqp316hd9v4edjvvm.jpg',
+                filename: 'YelpCamp/bxiwqp316hd9v4edjvvm'
+              },
+              {
+                url: 'https://res.cloudinary.com/lagamorph/image/upload/v1634880881/YelpCamp/pwj0rbaihq4igtsrqc6s.jpg',
+                filename: 'YelpCamp/pwj0rbaihq4igtsrqc6s'
+              },
+              {
+                url: 'https://res.cloudinary.com/lagamorph/image/upload/v1634880881/YelpCamp/zjms3iiixfwf58i3zvmg.jpg',
+                filename: 'YelpCamp/zjms3iiixfwf58i3zvmg'
+              }
+            ]
         });
         // Save Files
         await camp.save();

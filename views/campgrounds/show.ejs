@@ -7,8 +7,11 @@
 <div class="row">
 
 <!-- Campgrounds Section -->
+<!-- map section -->
+  <div id='map' style='width: 400px; height: 300px;'></div>
+
+  <!-- image carousel -->
   <div class="col-6">
-    <!-- image carousel -->
     <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% campground.images.forEach((img, i) => { %> 
@@ -114,3 +117,10 @@
   </div>
 </div>
 
+<!-- MapBox GL JS Code -->
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+  const campground = <%-JSON.stringify(campground)%>;
+</script>
+
+<script src="/scripts/showPageMap.js"></script>

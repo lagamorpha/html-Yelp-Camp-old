@@ -10,7 +10,11 @@
             <div class="row">
                 <div class="col-md-4">
                     <!-- Campgrounds Image -->
-                    <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                    <%if(campground.images.length) {%> 
+                        <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                    <%} else {%> 
+                        <img class="img-fluid" alt="" src="https://res.cloudinary.com/lagamorph/image/upload/v1634628712/YelpCamp/yxn2gyo0s8bs4at7zwqk.jpg">
+                    <% } %> 
                 </div>
                 <div class="col-md-8">
                     <!-- Campgrounds Title/ Description -->
