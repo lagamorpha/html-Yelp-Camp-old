@@ -1,3 +1,4 @@
+// Random Suffixes
 module.exports.descriptors = [
     'Forest',
     'Ancient',
@@ -19,6 +20,7 @@ module.exports.descriptors = [
     'Diamond'
 ]
 
+// Random Prefixes
 module.exports.places = [
     'Flats',
     'Village',

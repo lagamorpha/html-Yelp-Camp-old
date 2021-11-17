@@ -1,3 +1,4 @@
+// Error Display MiddleWare
 class ExpressError extends Error {
     constructor (message, statusCode) {
         super();
@@ -6,4 +7,5 @@ class ExpressError extends Error {
     }
 }
 
+// Export Block
 module.exports = ExpressError;

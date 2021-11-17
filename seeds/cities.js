@@ -1,3 +1,4 @@
+// City Seed Bulk Data
 module.exports = [
     {
         city: "New York",

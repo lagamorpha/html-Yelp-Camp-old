@@ -1,7 +1,9 @@
+// Variable Block
 const mongoose = require('mongoose');
 const Review = require('./review');
 const Schema = mongoose.Schema;
 
+// Schema Declaration
 const CampgroundSchema = new Schema({
     title: String,
     image: String,
@@ -16,6 +18,7 @@ const CampgroundSchema = new Schema({
     ]
 });
 
+// Deletion Query Middleware
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
     if(doc) {
         await Review.deleteMany({
@@ -27,4 +30,5 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
     }
 }) 
 
+// Export Block
 module.exports = mongoose.model('Campground', CampgroundSchema);
