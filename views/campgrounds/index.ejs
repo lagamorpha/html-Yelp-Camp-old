@@ -13,7 +13,7 @@
                         <h5 class="card-title"><%= campground.title %></h5>
                         <p class="card-text"><%= campground.description %> </p>
                         <p class="card-text">
-                            <small class="text-muted"><%= campground.location %></small>
+                            <small class="text-muted"><%= campground.location %>, $<%= campground.price %>/ Night </small>
                         </p>
                         <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">View <%= campground.title %></a>
                     </div>
