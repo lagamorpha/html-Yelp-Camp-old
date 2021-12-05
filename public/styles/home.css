@@ -13,7 +13,7 @@ body {
 }
 
 .nav-link {
-    padding: 0.25rem;
+    padding: 0.25rem 0;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.5);
     margin-left: 1rem;
@@ -31,5 +31,6 @@ body {
 }
 
 .btn-secondary, .btn-secondary:hover {
+    color: #333;
     text-shadow: none;
 }
