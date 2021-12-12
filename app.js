@@ -24,7 +24,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-// const dbUrl = process.env.DB_URL;
 
 // Methods Block
 const User = require('./models/user');
@@ -33,7 +32,9 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 
-
+// mongo server settings
+// const dbUrl = process.env.DB_URL;
+// 'mongodb://localhost:27017/yelp-camp'
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
