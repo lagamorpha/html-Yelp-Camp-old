@@ -24,6 +24,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const MongoStore = require('connect-mongo');
 
 // Methods Block
 const User = require('./models/user');
@@ -35,8 +36,9 @@ const userRoutes = require('./routes/users');
 // mongo server settings
 // const dbUrl = process.env.DB_URL;
 // 'mongodb://localhost:27017/yelp-camp'
+const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -65,7 +67,6 @@ app.use(mongoSanitize({
 app.use(helmet({}));
 
 // content security policy config
-
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
@@ -113,8 +114,22 @@ app.use(
     })
 );
 
-// Session & Flash Settings
+// connect-mongo store config
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'pickabettersecret'
+    }
+});
+
+store.on("error", function(e){
+    console.log("Session store error!");
+});
+
+// Session config object
 const sessionConfig = {
+    store,
     name: 'session',
     secret: 'pickabettersecret',
     resave: false,
