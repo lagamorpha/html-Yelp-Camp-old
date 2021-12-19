@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cities = require('./cities');
 const {places, descriptors} = require('./seedHelpers');
 const Campground = require('../models/campground');
+const userId = '61be98cbe3c15d08a4e5948e';
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
@@ -27,7 +28,7 @@ const seedDB = async () => {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
-            author: '61498cfadfad6d07c443581c',
+            author: userId,
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quo nemo aliquam animi placeat quod fuga iure, dolorum, omnis commodi voluptas accusamus repellendus id quis necessitatibus temporibus voluptatibus asperiores assumenda.At, sapiente quam? Dignissimos recusandae aliquid quia ut tempora praesentium nam ea? Fugit animi eligendi autem neque quaerat dolor officia quidem. Et qui dolorum soluta dolorem veniam cum explicabo vel?',
